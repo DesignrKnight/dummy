@@ -34,4 +34,17 @@ Before we delve into the comparitive study on various methods of authenticating 
 There are various external services(like Google, GitHub) that can use used for the Login and SignUp flow of the service. This mitigates the resources for security of userbase and these are managed by these external services. These are done by the OAuth2 protocol for authorization which is an industry-standard as of today. Having an external service manage the login and signup comes with a lot of lucrative features, but there may be some use-cases which benefit without it. 
 
 ### Benefits of OAuth via External Service
-* The User Experience is enhanced as majority users just need to click an
+* The signup user experience is enhanced as majority users just need to click and authorize to use that service to signup, and the need to fill the form is removed.
+* Password hashing, IP rate limiting, password reset and other done out of the box with OAuth2
+* Users gain more trust with your service as you are not saving their sensitive login info, but it is rather managed by a reputed external service
+
+### Some pointers regarding External Service
+* With the external service playing pivotal role in user management, the signup and login flow will have some brand element of theirs and not solely your brand. 
+* You may still need a sign-up form to take additional info which is not provided by the service.
+* Though rare, but an outage of this external service would render the authentication on your service to fail even for legit users on your service
+* During peak usage, these external services may not be able to deliver to immense load as they have rate-limiter for each service using their OAuth(Some services have a paid option to lift this rate limit)
+* Do make sure you have a proper privacy policy on the service using OAuth and this plays a role in obtaining the API-key permission to use OAuth
+
+## Final Note
+Having gained an insight into how the login and signup mechanism is managed for a service, I hope you are better equipped to manage user authentication of your service. To gain more detailed insight, I'll put some keywords here which you can do web search on and get further info. Kindly make sure you are reading recent articles always when making these decisions as the security standards and protocols are regularly updated
+Keywords: OAuth, JWT, Hashing and Salt, SHA-2, "Adobe encryption password breach", Brute-force atatck, Rainbow Tables, IP Rate Limiting
