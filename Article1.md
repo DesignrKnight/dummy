@@ -29,3 +29,9 @@ Before we delve into the comparitive study on various methods of authenticating 
 * Doing Reset Password the correct way
   * The reset password link generated must be unique and single use. Let us imagine a scenario where-in single-use is not enforced, then I can grab my friend's phone and if I see any reset password link, I can go ahead and change password again
   * Have a time limit within which the reset request is valid.
+
+## Using External Service for Login
+There are various external services(like Google, GitHub) that can use used for the Login and SignUp flow of the service. This mitigates the resources for security of userbase and these are managed by these external services. These are done by the OAuth2 protocol for authorization which is an industry-standard as of today. Having an external service manage the login and signup comes with a lot of lucrative features, but there may be some use-cases which benefit without it. 
+
+### Benefits of OAuth via External Service
+* The User Experience is enhanced as majority users just need to click an
